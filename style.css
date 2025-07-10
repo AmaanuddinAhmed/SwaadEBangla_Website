@@ -12,6 +12,10 @@
   --contrast-green: #265c3a;
 }
 
+html {
+  scroll-behavior: auto !important; /* Ensure Locomotive Scroll controls scrolling */
+}
+
 body {
   font-family: "Inter", sans-serif;
   background: var(--bg-cream);
@@ -34,9 +38,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px; /* Increased from 400px */
-  height: 600px; /* Increased from 400px */
-  opacity: 0.15; /* Reduced opacity slightly */
+  width: 600px;
+  height: 600px;
+  opacity: 0.15;
   z-index: -1;
   border-radius: 50%;
   display: flex;
@@ -56,11 +60,7 @@ header {
 /* FIXED LOGO TEXT SIZE */
 .logo-text-image {
   font-family: "Playfair Display", serif;
-  font-size: clamp(
-    2rem,
-    3.5vw,
-    3rem
-  ); /* Reduced from clamp(2.8rem, 5vw, 4.5rem) */
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 600;
   color: var(--primary-red);
   margin-bottom: 0.5rem;
@@ -198,7 +198,6 @@ header {
   justify-content: center;
   font-size: 3rem;
   color: var(--tertiary-brown);
-  /* opacity: 0.3; REMOVED - This was causing the transparent overlay */
   position: relative;
   overflow: hidden;
 }
@@ -415,18 +414,9 @@ footer {
     border-bottom: 1px solid rgba(148, 118, 75, 0.2);
   }
 
-  /* .bengali-text {
-    font-size: 1.2rem;
-  } */
-
-  .english-text {
-    font-size: 1.1rem;
-  }
-
-  /* FIXED MOBILE LOGO ICON SIZE */
   .logo-icon-watermark {
-    width: 450px; /* Increased from 300px */
-    height: 450px; /* Increased from 300px */
+    width: 450px;
+    height: 450px;
     font-size: 6rem;
   }
 }
@@ -476,4 +466,29 @@ footer {
 
 .food-sandesh {
   background: linear-gradient(135deg, #fff9f5, #f2e0d0);
+}
+
+/* Ensure smooth scrolling compatibility */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  user-select: none;
+}
+
+[data-scroll-container] {
+  min-height: 100vh;
+}
+
+.c-scrollbar_thumb {
+  background: var(--primary-red) !important;
+}
+
+.c-scrollbar_thumb:hover {
+  background: var(--secondary-gold) !important;
+}
+
+.c-scrollbar_thumb:active {
+  background: var(--contrast-green) !important;
 }
