@@ -1,0 +1,479 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-cream: #fffaf3;
+  --primary-red: #a0332b;
+  --secondary-gold: #da9917;
+  --tertiary-brown: #94764b;
+  --contrast-green: #265c3a;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-cream);
+  color: var(--tertiary-brown);
+  line-height: 1.7;
+  overflow-x: hidden;
+  font-weight: 300;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+/* Logo Icon as Background Watermark - FIXED SIZE */
+.logo-icon-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; /* Increased from 400px */
+  height: 600px; /* Increased from 400px */
+  opacity: 0.15; /* Reduced opacity slightly */
+  z-index: -1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  font-weight: 700;
+  font-family: "Noto Sans Bengali", sans-serif;
+}
+
+/* Header with Logo Text */
+header {
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+/* FIXED LOGO TEXT SIZE */
+.logo-text-image {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(
+    2rem,
+    3.5vw,
+    3rem
+  ); /* Reduced from clamp(2.8rem, 5vw, 4.5rem) */
+  font-weight: 600;
+  color: var(--primary-red);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  text-shadow: 2px 2px 4px rgba(160, 51, 43, 0.1);
+  position: relative;
+}
+
+.logo-text-image::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--secondary-gold),
+    transparent
+  );
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: var(--tertiary-brown);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+/* Coming Soon Section - Elegant Box */
+.coming-soon-section {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 118, 75, 0.1);
+  border-radius: 12px;
+  padding: 4rem 3rem;
+  text-align: center;
+  margin: 4rem 0;
+  box-shadow: 0 20px 40px rgba(160, 51, 43, 0.05);
+  position: relative;
+}
+
+.coming-soon-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--secondary-gold),
+    transparent
+  );
+}
+
+.coming-soon-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 500;
+  color: var(--primary-red);
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
+}
+
+.opening-info {
+  font-size: 1.3rem;
+  color: var(--tertiary-brown);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.location {
+  font-size: 1.1rem;
+  color: var(--tertiary-brown);
+  opacity: 0.7;
+  font-weight: 300;
+}
+
+/* Food Gallery - Elegant Boxes */
+.food-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 5rem 0;
+}
+
+.food-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 118, 75, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(160, 51, 43, 0.08);
+  position: relative;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(160, 51, 43, 0.12);
+}
+
+.food-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--secondary-gold),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.food-card:hover::before {
+  opacity: 1;
+}
+
+/* FIXED FOOD IMAGE - REMOVED OPACITY */
+.food-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, var(--bg-cream), rgba(148, 118, 75, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--tertiary-brown);
+  /* opacity: 0.3; REMOVED - This was causing the transparent overlay */
+  position: relative;
+  overflow: hidden;
+}
+
+.food-card-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.food-name {
+  font-family: "Noto Sans Bengali", sans-serif;
+  font-size: 1.1rem;
+  color: var(--primary-red);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.food-description {
+  font-size: 0.9rem;
+  color: var(--tertiary-brown);
+  opacity: 0.7;
+  font-weight: 300;
+}
+
+/* About Section - Elegant Box */
+.about-section {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 118, 75, 0.1);
+  border-radius: 12px;
+  padding: 4rem 3rem;
+  text-align: center;
+  margin: 5rem 0;
+  box-shadow: 0 20px 40px rgba(160, 51, 43, 0.05);
+  position: relative;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--secondary-gold),
+    transparent
+  );
+}
+
+.bengali-text {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  margin-bottom: 2rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.english-text {
+  font-size: 1.2rem;
+  color: var(--tertiary-brown);
+  margin-bottom: 2rem;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.closing-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: var(--contrast-green);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Notify Me Section - Elegant Box */
+.notify-section {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 118, 75, 0.1);
+  border-radius: 12px;
+  padding: 4rem 3rem;
+  text-align: center;
+  margin: 5rem 0;
+  box-shadow: 0 20px 40px rgba(160, 51, 43, 0.05);
+  position: relative;
+}
+
+.notify-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--secondary-gold),
+    transparent
+  );
+}
+
+.notify-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.notify-subtitle {
+  font-size: 1.1rem;
+  color: var(--tertiary-brown);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.notify-form {
+  display: flex;
+  max-width: 420px;
+  margin: 0 auto;
+  gap: 0;
+  border: 1px solid rgba(148, 118, 75, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.notify-input {
+  flex: 1;
+  padding: 1.2rem 1.5rem;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--tertiary-brown);
+  font-weight: 300;
+  outline: none;
+}
+
+.notify-input::placeholder {
+  color: var(--tertiary-brown);
+  opacity: 0.5;
+}
+
+.notify-btn {
+  padding: 1.2rem 2rem;
+  background: var(--primary-red);
+  color: var(--bg-cream);
+  border: none;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.notify-btn:hover {
+  background: var(--contrast-green);
+  transform: translateX(-2px);
+}
+
+.notify-disclaimer {
+  font-size: 0.85rem;
+  color: var(--tertiary-brown);
+  opacity: 0.6;
+  margin-top: 1.5rem;
+  font-weight: 300;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 4rem 0 3rem;
+  color: var(--tertiary-brown);
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.6;
+  border-top: 1px solid rgba(148, 118, 75, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .coming-soon-section,
+  .about-section,
+  .notify-section {
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+  }
+
+  .food-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+
+  .notify-form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .notify-input {
+    border-bottom: 1px solid rgba(148, 118, 75, 0.2);
+  }
+
+  /* .bengali-text {
+    font-size: 1.2rem;
+  } */
+
+  .english-text {
+    font-size: 1.1rem;
+  }
+
+  /* FIXED MOBILE LOGO ICON SIZE */
+  .logo-icon-watermark {
+    width: 450px; /* Increased from 300px */
+    height: 450px; /* Increased from 300px */
+    font-size: 6rem;
+  }
+}
+
+/* Subtle animations */
+.food-card {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.food-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.food-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.food-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.food-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Specific food placeholder styling */
+.food-rasgulla {
+  background: linear-gradient(135deg, #fff8f0, #f0e6d2);
+}
+
+.food-fish-curry {
+  background: linear-gradient(135deg, #fff5f0, #f0d6c2);
+}
+
+.food-mishti-doi {
+  background: linear-gradient(135deg, #fffaf5, #f5e6d0);
+}
+
+.food-sandesh {
+  background: linear-gradient(135deg, #fff9f5, #f2e0d0);
+}
