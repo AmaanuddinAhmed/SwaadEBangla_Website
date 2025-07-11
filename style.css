@@ -142,10 +142,11 @@ header {
 
 /* Food Gallery - Elegant Boxes */
 .food-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   margin: 5rem 0;
+  justify-content: center;
 }
 
 .food-card {
@@ -156,6 +157,7 @@ header {
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(160, 51, 43, 0.08);
   position: relative;
+  width: 250px; /* Fixed width */
 }
 
 .food-card:hover {
@@ -383,6 +385,18 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 480px) {
+  .food-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .food-card {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 20px;
@@ -396,9 +410,12 @@ footer {
   }
 
   .food-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin: 3rem 0;
+  }
+
+  .food-card {
+    width: 25 0px; /* Fixed width for mobile */
   }
 
   .notify-form {
