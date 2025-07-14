@@ -322,18 +322,18 @@ header {
 
 .notify-form {
   display: flex;
+  flex-direction: column;
   max-width: 420px;
   margin: 0 auto;
-  gap: 0;
+  gap: 1rem;
   border: 1px solid rgba(148, 118, 75, 0.2);
   border-radius: 8px;
-  overflow: hidden;
+  padding: 1rem;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
 
 .notify-input {
-  flex: 1;
   padding: 1.2rem 1.5rem;
   border: none;
   background: transparent;
@@ -341,6 +341,7 @@ header {
   color: var(--tertiary-brown);
   font-weight: 300;
   outline: none;
+  border-bottom: 1px solid rgba(148, 118, 75, 0.2);
 }
 
 .notify-input::placeholder {
@@ -358,11 +359,12 @@ header {
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
+  border-radius: 8px;
 }
 
 .notify-btn:hover {
   background: var(--contrast-green);
-  transform: translateX(-2px);
+  transform: translateY(-2px);
 }
 
 .notify-disclaimer {
@@ -415,16 +417,11 @@ footer {
   }
 
   .food-card {
-    width: 25 0px; /* Fixed width for mobile */
+    width: 250px; /* Fixed width for mobile */
   }
 
   .notify-form {
-    flex-direction: column;
     max-width: 100%;
-  }
-
-  .notify-input {
-    border-bottom: 1px solid rgba(148, 118, 75, 0.2);
   }
 
   .logo-icon-watermark {
